@@ -1,22 +1,8 @@
-import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion'
-const Toppings = ({ addTopping }) => {
-  const [selectedToppings, setSelectedToppings] = useState([]);
+const Toppings = ({ addTopping,meal }) => {
 
-  const toggleTopping = (topping) => {
-    const isSelected = selectedToppings.includes(topping);
-    if (isSelected) {
-      setSelectedToppings(selectedToppings.filter(item => item !== topping));
-    } else {
-      setSelectedToppings([...selectedToppings, topping]);
-    }
-  };
-
-  const handleToppingClick = (topping) => {
-    toggleTopping(topping);
-    addTopping(topping);
-  };
 
   const toppings = ['Chicken', 'Beef', 'Pork', 'Prawns', 'Tofu', 'Turkey'];
 
@@ -24,10 +10,14 @@ const Toppings = ({ addTopping }) => {
     <div className="toppings container">
       <h3>Step 2: Choose Toppings</h3>
       <ul>
-        {toppings.map((topping, index) => (
-          <li key={index} onClick={() => handleToppingClick(topping)} className={selectedToppings.includes(topping) ? 'active' : ''}>
-            {topping}
-          </li>
+        {toppings.map(topping => (
+          <motion.li key={topping} onClick={() => addTopping(topping)}
+          whileHover={{ scale: 1.3, originX: 0,color: '#f8e112' }}
+          transition={{ type: 'spring', stiffness: 300 }}
+          >
+            
+            <span className={meal.topping === topping ? 'active' : ''}>{topping}</span>
+          </motion.li>
         ))}
       </ul>
       <motion.div className="next"
@@ -36,7 +26,15 @@ const Toppings = ({ addTopping }) => {
       transition={{ type: 'spring', stiffness: 120 }}
       >
       <Link to="/sauces">
-        <button>Next</button>
+      <motion.button
+               whileHover={{ 
+                scale: 1.1, 
+                textShadow: "0px 0px 8px rgb(255,255,255)",
+                boxShadow: "0px 0px 8px rgb(255,255,255)",
+              }}
+            >
+              Next
+            </motion.button>
       </Link>
       </motion.div>
     </div>
