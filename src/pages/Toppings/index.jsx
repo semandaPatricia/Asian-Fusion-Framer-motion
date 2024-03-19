@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import {motion} from 'framer-motion'
 const Toppings = ({ addTopping }) => {
   const [selectedToppings, setSelectedToppings] = useState([]);
 
@@ -30,9 +30,14 @@ const Toppings = ({ addTopping }) => {
           </li>
         ))}
       </ul>
+      <motion.div className="next"
+      initial={{ x: '-100vw' }}
+      animate={{ x: 0 }}
+      >
       <Link to="/sauces">
         <button>Next</button>
       </Link>
+      </motion.div>
     </div>
   );
 };

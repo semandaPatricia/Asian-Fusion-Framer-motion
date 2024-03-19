@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {motion} from 'framer-motion'
 const Sauces = ({ addSauce, meal }) => {
   const sauces = ['Japan Teriyaki', 'Beijing Sauce', 'Thailand Padthai', 'Indonesia Satay', 'Burma Green Curry', 'Malay Coconut Curry'];
 
@@ -14,11 +15,14 @@ const Sauces = ({ addSauce, meal }) => {
         ))}
       </ul>
       {meal.sauce && (
-        <div className="next">
+        <motion.div className="next"
+        initial={{ x: '-100vw' }}
+        animate={{ x: 0 }}
+        >
           <Link to="/order">
             <button>Next</button>
           </Link>
-        </div>
+        </motion.div>
       )}
     </div>
   );
