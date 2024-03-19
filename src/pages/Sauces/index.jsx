@@ -1,11 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {motion} from 'framer-motion'
+
+
+const containerVariants = {
+  hidden: { 
+    opacity: 0, 
+    x: '100vw' 
+  },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { type: 'spring', delay: 0.5 }
+  },
+};
 const Sauces = ({ addSauce, meal }) => {
   const sauces = ['Japan Teriyaki', 'Beijing Sauce', 'Thailand Padthai', 'Indonesia Satay', 'Burma Green Curry', 'Malay Coconut Curry'];
 
   return (
-    <div className="sauces container">
+    <motion.div className="sauces container"
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+    >
       <h3>Step 3: Choose Your Sauce</h3>
       <ul>
         {sauces.map(sauce => (
@@ -36,7 +53,7 @@ const Sauces = ({ addSauce, meal }) => {
           </Link>
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
