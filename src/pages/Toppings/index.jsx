@@ -14,6 +14,18 @@ const containerVariants = {
   },
 };
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      duration: 0.3,
+      repeat: 10
+    }
+  }
+}
+
 
 const Toppings = ({ addTopping,meal }) => {
 
@@ -44,11 +56,8 @@ const Toppings = ({ addTopping,meal }) => {
       >
       <Link to="/sauces">
       <motion.button
-               whileHover={{ 
-                scale: 1.1, 
-                textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)",
-              }}
+                variants={buttonVariants}
+                whileHover="hover"
             >
               Next
             </motion.button>

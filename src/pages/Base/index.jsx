@@ -24,6 +24,17 @@ const nextVariants = {
   } 
 }
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0px 0px 8px rgb(255,255,255)",
+    transition: {
+      duration: 0.3,
+      repeat: 10
+    }
+  }
+}
 
 const Base = ({ addBase, meal }) => {
   const bases = ['Rice noodles', 'Udon noodles', 'White rice', 'Brown rice', 'Quinoa', 'Vermicelli','Whole Grain noodles','Vegetable base'];
@@ -52,11 +63,8 @@ const Base = ({ addBase, meal }) => {
         >
           <Link to="/toppings">
           <motion.button
-               whileHover={{ 
-                scale: 1.1, 
-                textShadow: "0px 0px 8px rgb(255,255,255)",
-                boxShadow: "0px 0px 8px rgb(255,255,255)",
-              }}
+                  variants={buttonVariants}
+                  whileHover="hover"
             >
               Next
             </motion.button>
