@@ -33,6 +33,7 @@ const Toppings = ({ addTopping }) => {
       <motion.div className="next"
       initial={{ x: '-100vw' }}
       animate={{ x: 0 }}
+      transition={{ type: 'spring', stiffness: 120 }}
       >
       <Link to="/sauces">
         <button>Next</button>

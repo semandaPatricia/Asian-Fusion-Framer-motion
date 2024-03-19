@@ -18,6 +18,7 @@ const Sauces = ({ addSauce, meal }) => {
         <motion.div className="next"
         initial={{ x: '-100vw' }}
         animate={{ x: 0 }}
+        transition={{ type: 'spring', stiffness: 120 }}
         >
           <Link to="/order">
             <button>Next</button>
