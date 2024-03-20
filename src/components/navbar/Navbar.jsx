@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   return (
     <header>
-      <div className="logo">
+       <motion.div
+        className="logo"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <img src="bird.svg" alt="Logo" className="bird-svg" />
-      </div>
+      </motion.div>
       <motion.div
         className="title"
         initial={{ position: "relative", top: -250 }}
@@ -16,7 +20,9 @@ const Navbar = () => {
         <Link to="/">
           <h1>TOM TOM</h1>
         </Link>
+        
       </motion.div>
+      
     </header>
   );
 };

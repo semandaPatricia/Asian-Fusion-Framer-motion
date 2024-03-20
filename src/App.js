@@ -8,6 +8,8 @@ import Toppings from "./pages/Toppings";
 import Sauces from './pages/Sauces';
 import Order from './pages/Order/index'
 
+
+
 function App() {
   const [meal, setMeal] = useState({ base: "", toppings: [], sauce: "" });
 
@@ -40,6 +42,7 @@ function App() {
           <Route path="/sauces" element={<Sauces addSauce={addSauce} meal={meal} />} />
           <Route path="/order" element={<Order meal={meal} />} />
         </Routes>
+        
       </Router>
     </>
   );
